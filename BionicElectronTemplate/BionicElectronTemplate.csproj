@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <Description>Bionic Electron Template - Electron Project Template for Bionic</Description>
+    <PackageOutputPath>./nupkg</PackageOutputPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="content/platforms/**/*.*;" />
+    <Content Remove="**/*.DS_Store" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="content/platforms/electron/**/*.dll">
+      <Pack>true</Pack>
+      <PackageCopyToOutput>true</PackageCopyToOutput>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="nupkg" />
+  </ItemGroup>
+  
+</Project>

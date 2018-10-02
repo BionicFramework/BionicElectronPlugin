@@ -1,0 +1,11 @@
+{
+  "author": "Bionic Framework",
+  "classifications": [ "Web/Blazor" ],
+  "name": "Bionic Electron Template",
+  "identity": "Bionic.Electron.Template",
+  "shortName": "bionic.electron",
+  "tags": {
+    "language": "JS"
+  },
+  "sourceName": "BionicElectronTemplate"
+}
