@@ -5,11 +5,11 @@
     <Product>Bionic Framework</Product>
     <Copyright>(c) Bionic Framework Contributors. All rights reserved.</Copyright>
     <PackageLicenseUrl>https://raw.githubusercontent.com/BionicFramework/BionicCLI/master/LICENSE</PackageLicenseUrl>
-    <PackageProjectUrl>https://github.com/BionicFramework/BionicElectron</PackageProjectUrl>
+    <PackageProjectUrl>https://github.com/BionicFramework/BionicElectronPlugin</PackageProjectUrl>
     <PackageIconUrl>https://vectr.com/bmsantos/a2sGndBV8e.svg?width=256&amp;height=256&amp;select=a2sGndBV8epage0</PackageIconUrl>
     <PackageTags>ASP.NET Core, Blazor, Bionic, Ionic, Android, iOS, PWA, Electron</PackageTags>
     <PackageReleaseNotes></PackageReleaseNotes>
-    <RepositoryUrl>https://github.com/BionicFramework/BionicElectron</RepositoryUrl>
+    <RepositoryUrl>https://github.com/BionicFramework/BionicElectronPlugin</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <IncludeSymbols>true</IncludeSymbols>
     <IsPackable>true</IsPackable>
@@ -32,7 +32,7 @@
   <!-- Configure source link: https://github.com/ctaggart/SourceLink -->
   <PropertyGroup>
     <SourceLinkCreate>true</SourceLinkCreate>
-    <SourceLinkOriginUrl>https://github.com/BionicFramework/BionicElectron</SourceLinkOriginUrl>
+    <SourceLinkOriginUrl>https://github.com/BionicFramework/BionicElectronPlugin</SourceLinkOriginUrl>
   </PropertyGroup>
 
 
