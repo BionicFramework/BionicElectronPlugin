@@ -21,13 +21,13 @@ dotnet pack -c Release /p:SourceLinkCreate=true /p:VersionSuffix= /p:OfficialBui
 ## Add local package as nuget install sources
 
 ```bash
-nuget sources add -name BionicElectron -source ~/RiderProjects/BionicElectron/BionicElectronPlugin/nupkg
-nuget sources add -name BionicElectronTemplate -source ~/RiderProjects/BionicElectron/BionicElectronTemplate/nupkg
+nuget sources add -name BionicElectron -source $PWD/BionicElectronPlugin/nupkg
+nuget sources add -name BionicElectronTemplate -source $PWD/BionicElectronTemplate/nupkg
 ```
 
  ## Install local plugin
 
-In a Blazor client side project execute:
+In a ***Blazor Standalone (or Hosted Client)*** project execute:
 
  ```bash
 nuget install BionicElectronPlugin -DirectDownload -ExcludeVersion -PackageSaveMode nuspec -o .bionic

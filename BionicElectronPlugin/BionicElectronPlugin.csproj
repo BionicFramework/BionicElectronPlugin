@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="BionicPlugin" Version="1.0.20" />
+    <PackageReference Include="BionicPlugin" Version="1.0.21" />
   </ItemGroup>
 
   <ItemGroup>
