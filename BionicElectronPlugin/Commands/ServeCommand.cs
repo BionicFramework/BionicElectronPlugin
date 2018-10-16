@@ -1,7 +1,10 @@
 using System;
 using System.Diagnostics;
 using System.IO;
+using BionicCLI;
+using BionicPlugin;
 using McMaster.Extensions.CommandLineUtils;
+using static BionicCore.DirectoryUtils;
 
 namespace BionicElectronPlugin.Commands {
   [Command(Name = "serve", Description = "Serve Electron project")]
@@ -9,11 +12,11 @@ namespace BionicElectronPlugin.Commands {
     protected override int OnExecute(CommandLineApplication app) => Serve();
 
     private static int Serve() {
-      Console.WriteLine("☕  Serving Electron...");
+      Logger.Preparing("Serving Electron...");
 
       var cd = Directory.GetCurrentDirectory();
       try {
-        Directory.SetCurrentDirectory($"{cd}/platforms/electron");
+        Directory.SetCurrentDirectory(ToOSPath($"{cd}/platforms/electron"));
         Process.Start(
           new ProcessStartInfo("npm", $"start") {
             CreateNoWindow = true,
@@ -23,7 +26,7 @@ namespace BionicElectronPlugin.Commands {
         )?.WaitForExit();
       }
       catch (Exception) {
-        Console.WriteLine($"☠  Something went wrong during electron serve. Please check platforms/electron");
+        Logger.Error("Something went wrong during electron serve. Please check platforms/electron");
         return 1;
       }
       finally

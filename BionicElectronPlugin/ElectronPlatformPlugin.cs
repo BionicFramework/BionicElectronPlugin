@@ -1,4 +1,3 @@
-using System;
 using BionicElectronPlugin.Commands;
 using BionicPlugin;
 using McMaster.Extensions.CommandLineUtils;
@@ -17,7 +16,6 @@ namespace BionicElectronPlugin {
     }
 
     public int Execute() {
-      Console.WriteLine("Hello from Bionic Electron Platform Plugin");
       return 0;
     }
 

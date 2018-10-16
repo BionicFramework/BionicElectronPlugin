@@ -1,7 +1,10 @@
 using System;
 using System.Diagnostics;
 using System.IO;
+using BionicCLI;
+using BionicPlugin;
 using McMaster.Extensions.CommandLineUtils;
+using static BionicCore.DirectoryUtils;
 
 namespace BionicElectronPlugin.Commands {
   [Command(Name = "init", Description = "Initialize Electron project structure")]
@@ -9,7 +12,7 @@ namespace BionicElectronPlugin.Commands {
     protected override int OnExecute(CommandLineApplication app) => Init();
 
     private static int Init() {
-      Console.WriteLine("☕  Initializing Electron...");
+      Logger.Preparing("Initializing Electron...");
 
       // TODO: Check if already installed
       Process.Start(
@@ -25,7 +28,7 @@ namespace BionicElectronPlugin.Commands {
 
       var cd = Directory.GetCurrentDirectory();
       try {
-        Directory.SetCurrentDirectory($"{cd}/platforms/electron");
+        Directory.SetCurrentDirectory(ToOSPath($"{cd}/platforms/electron"));
         Process.Start(
           new ProcessStartInfo("npm", $"install") {
             CreateNoWindow = true,
@@ -35,7 +38,7 @@ namespace BionicElectronPlugin.Commands {
         )?.WaitForExit();
       }
       catch (Exception) {
-        Console.WriteLine($"☠  Something went wrong during Electron install. Please check platforms/electron");
+        Logger.Error("Something went wrong during Electron install. Please check platforms/electron");
         return 1;
       }
       finally
@@ -43,8 +46,8 @@ namespace BionicElectronPlugin.Commands {
         Directory.SetCurrentDirectory(cd);
       }
 
-      Console.WriteLine("🚀  Electron is ready to go! - try: bionic platform electron serve");
-      return 1;
+      Logger.Success("Electron is ready to go! - try: bionic platform electron serve");
+      return 0;
     }
   }
 }

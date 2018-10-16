@@ -2,6 +2,8 @@
 
 source ~/.nuget_bionic_key
 
+DIR=$(dirname "$0")
+
 if [ -z "$1" ]
   then
     echo "No version supplied"
@@ -14,7 +16,7 @@ if [ -z "${NUGET_BIONIC_KEY}" ]
     exit 1
 fi
 
-dotnet pack -c Release /p:SourceLinkCreate=true /p:VersionSuffix= /p:OfficialBuild=true
+${DIR}/build_release.sh
 
 echo "Pushing BionicElectronPlugin.$1.nupkg to NuGet..."
 dotnet nuget push ./BionicElectronPlugin/nupkg/BionicElectronPlugin.$1.nupkg --source https://api.nuget.org/v3/index.json --api-key ${NUGET_BIONIC_KEY}
