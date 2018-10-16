@@ -1,7 +1,7 @@
 using System;
-using System.Diagnostics;
 using System.IO;
 using BionicCLI;
+using BionicCore;
 using BionicPlugin;
 using McMaster.Extensions.CommandLineUtils;
 using static BionicCore.DirectoryUtils;
@@ -17,24 +17,15 @@ namespace BionicElectronPlugin.Commands {
       var cd = Directory.GetCurrentDirectory();
       try {
         Directory.SetCurrentDirectory(ToOSPath($"{cd}/platforms/electron"));
-        Process.Start(
-          new ProcessStartInfo("npm", $"start") {
-            CreateNoWindow = true,
-            UseShellExecute = false,
-            RedirectStandardOutput = false
-          }
-        )?.WaitForExit();
+        return ProcessHelper.RunCmd("npm", "start");
       }
       catch (Exception) {
         Logger.Error("Something went wrong during electron serve. Please check platforms/electron");
         return 1;
       }
-      finally
-      {
+      finally {
         Directory.SetCurrentDirectory(cd);
       }
-
-      return 0;
     }
   }
 }
