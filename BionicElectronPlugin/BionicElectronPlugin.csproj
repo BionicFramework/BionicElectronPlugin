@@ -6,8 +6,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="BionicPlugin" Version="1.0.25" />
-    <PackageReference Include="BionicCore" Version="1.0.25" />
+    <PackageReference Include="BionicPlugin" Version="1.0.26" />
+    <PackageReference Include="BionicCore" Version="1.0.26" />
   </ItemGroup>
 
   <ItemGroup>
